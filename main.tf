@@ -1,4 +1,25 @@
+provider "aws" {
+    region = "us-east-1"  
+}
 
+resource "aws_instance" "foo" {
+  ami           = "ami-01bc990364452ab3e" # us-east-1
+  instance_type = "t2.micro"
+  tags = {
+      Name = "TF-Instance"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*
 provider "aws" {
     region = "us-east-1"
 }
@@ -26,7 +47,7 @@ resource "aws_instance" "web-server" {
   tags = {
     Name = "ubuntu-web-server"
   }
-
+*/
 /*
 # use data source to get a registered amazon linux 2 ami
 data "aws_ami" "amazon_linux_2" {
@@ -43,9 +64,9 @@ data "aws_ami" "amazon_linux_2" {
     values = ["amzn2-ami-hvm*"]
   }
 }
+*/
 
-
-# launch the ec2 instance and install website
+/*# launch the ec2 instance and install website
 resource "aws_instance" "ec2_instance" {
   ami                    = data.aws_ami.amazon_linux_2.id
   instance_type          = "t2.micro"
